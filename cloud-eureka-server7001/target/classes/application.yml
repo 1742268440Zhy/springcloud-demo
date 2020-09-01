@@ -1,0 +1,23 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: cloud-eureka-service
+
+eureka:
+  instance:
+    hostname: eureka7001.com #eureka服务端实例名称
+  client:
+    register-with-eureka: false #表示不向注册中心注册自己
+    fetch-registry: false #false表示自己就是注册中心，我的职责就是维护服务实例,并不区检索服务
+    service-url:
+      # 单击
+      defaultZone: http://eureka7001.cn:7001/eureka/
+      # 集群
+#      defaultZone: http://eureka7002.com:7002/eureka/
+  server:
+    # 关闭Eureka的自我保护机制
+    enable-self-preservation: false
+    # 清理间隔时间（单位毫秒，默认是60*1000）
+    eviction-interval-timer-in-ms: 2000
